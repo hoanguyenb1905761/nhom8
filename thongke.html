@@ -1,0 +1,450 @@
+<!-- =================================================
+Theme Name: Topper Bootstrap Theme 
+Author: WebThemez.com
+License: https://webthemez.com/license
+======================================================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Mirrors Beauty Parlour Website</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <meta content="Author" name="WebThemez">
+    <!-- Favicons -->
+    <link href="img/favicon.png" rel="icon">
+    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700"
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS File -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Libraries CSS Files -->
+    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+
+    <!-- Main Stylesheet File -->
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script>
+        function thongKe() {
+            var request = new XMLHttpRequest();
+            var urlHere = "https://api.thingspeak.com/update?";
+            urlHere = "https://api.thingspeak.com/channels/1715997/feeds.json";
+            request.open('GET', urlHere, true);
+            request.onload = function () {
+                if (request.status == 200) {
+                    var data = JSON.parse(request.responseText);
+                    var length = data.feeds.length;  //kich thuoc du lieu
+                    //loc bo cac phan tu null
+                    dataNhapSP1 = new Array();
+                    dataXuatSP1 = new Array();
+                    dataNhapSP2 = new Array();
+                    dataXuatSP2 = new Array();
+                    dataNhapSP3 = new Array();
+                    dataXuatSP3 = new Array();
+                    for (i = 0; i < length; i++) {
+                        if (data.feeds[i].field1 != null) {
+                            dataNhapSP1.push(data.feeds[i].field1);
+                        }
+                        if (data.feeds[i].field2 != null) {
+                            dataXuatSP1.push(data.feeds[i].field2);
+                        }
+                        if (data.feeds[i].field3 != null) {
+                            dataNhapSP2.push(data.feeds[i].field3);
+                        }
+                        if (data.feeds[i].field4 != null) {
+                            dataXuatSP2.push(data.feeds[i].field4);
+                        }
+                        if (data.feeds[i].field5 != null) {
+                            dataNhapSP3.push(data.feeds[i].field5);
+                        }
+                        if (data.feeds[i].field6 != null) {
+                            dataXuatSP3.push(data.feeds[i].field6);
+                        }
+                    }
+                    tongXuatSP1 = 0, tongNhapSP1 = 0, tonKhoSP1 = 0;
+                    tongXuatSP2 = 0, tongNhapSP2 = 0, tonKhoSP2 = 0;
+                    tongXuatSP3 = 0, tongNhapSP3 = 0, tonKhoSP3 = 0;
+                    tongXuat = 0, tongNhap = 0, tonKho = 0;
+                    for (i = 0; i < dataXuatSP1.length; i++) {
+                        tongXuatSP1 += parseInt(dataXuatSP1[i]);
+                    }
+                    for (i = 0; i < dataNhapSP1.length; i++) {
+                        tongNhapSP1 += parseInt(dataNhapSP1[i]);
+                    }
+                    for (i = 0; i < dataXuatSP2.length; i++) {
+                        tongXuatSP2 += parseInt(dataXuatSP2[i]);
+                    }
+                    for (i = 0; i < dataNhapSP2.length; i++) {
+                        tongNhapSP2 += parseInt(dataNhapSP2[i]);
+                    }
+                    for (i = 0; i < dataXuatSP3.length; i++) {
+                        tongXuatSP3 += parseInt(dataXuatSP3[i]);
+                    }
+                    for (i = 0; i < dataNhapSP3.length; i++) {
+                        tongNhapSP3 += parseInt(dataNhapSP3[i]);
+                    }
+                    tonKhoSP1 = tongNhapSP1 - tongXuatSP1;
+                    tonKhoSP2 = tongNhapSP2 - tongXuatSP2;
+                    tonKhoSP3 = tongNhapSP3 - tongXuatSP3;
+                    tongXuat = tongXuatSP1 + tongXuatSP2 + tongXuatSP3;
+                    tongNhap = tongNhapSP1 + tongNhapSP2 + tongNhapSP3;
+                    tonKho = tonKhoSP1 + tonKhoSP2 + tonKhoSP3;
+                    // document.getElementById("nhapsp1").innerHTML = tongNhapSP1;
+                    // document.getElementById("xuatsp1").innerHTML = tongXuatSP1;
+                    // document.getElementById("tonsp1").innerHTML = tonKhoSP1;
+                    // document.getElementById("nhapsp2").innerHTML = tongNhapSP2;
+                    // document.getElementById("xuatsp2").innerHTML = tongXuatSP2;
+                    // document.getElementById("tonsp2").innerHTML = tonKhoSP2;
+                    // document.getElementById("nhapsp3").innerHTML = tongNhapSP3;
+                    // document.getElementById("xuatsp3").innerHTML = tongXuatSP3;
+                    // document.getElementById("tonsp3").innerHTML = tonKhoSP3;
+                    // document.getElementById("tongnhap").innerHTML = tongNhap;
+                    // document.getElementById("tongxuat").innerHTML = tongXuat;
+                    // document.getElementById("tongton").innerHTML = tonKho;
+                    //Ve bieu đồ nhập xuất
+                    var yNhapSP1 = new Array();
+                    var yXuatSP1 = new Array();
+                    var xNgayNhapSP1 = new Array();
+                    var xNgayXuatSP1 = new Array();
+                    var yNhapSP2 = new Array();
+                    var yXuatSP2 = new Array();
+                    var xNgayNhapSP2 = new Array();
+                    var xNgayXuatSP2 = new Array();
+                    var yNhapSP3 = new Array();
+                    var yXuatSP3 = new Array();
+                    var xNgayNhapSP3 = new Array();
+                    var xNgayXuatSP3 = new Array();
+                    for (var i = 0; i < length; i++) {
+                        if (data.feeds[i].field1 != null) {
+                            yNhapSP1.push(data.feeds[i].field1);
+                            xNgayNhapSP1.push(data.feeds[i].created_at);
+                        }
+                        if (data.feeds[i].field2 != null) {
+                            yXuatSP1.push(data.feeds[i].field2);
+                            xNgayXuatSP1.push(data.feeds[i].created_at);
+                        }
+                        if (data.feeds[i].field3 != null) {
+                            yNhapSP2.push(data.feeds[i].field3);
+                            xNgayNhapSP2.push(data.feeds[i].created_at);
+                        }
+                        if (data.feeds[i].field4 != null) {
+                            yXuatSP2.push(data.feeds[i].field4);
+                            xNgayXuatSP2.push(data.feeds[i].created_at);
+                        }
+                        if (data.feeds[i].field5 != null) {
+                            yNhapSP3.push(data.feeds[i].field5);
+                            xNgayNhapSP3.push(data.feeds[i].created_at);
+                        }
+                        if (data.feeds[i].field6 != null) {
+                            yXuatSP3.push(data.feeds[i].field6);
+                            xNgayXuatSP3.push(data.feeds[i].created_at);
+                        }
+                    }
+                    //bieu đồ
+                    new Chart("chartNhapSP1", {
+                        type: "bar",
+                        data: {
+                            labels: xNgayNhapSP1,
+                            datasets: [
+                                {
+                                    fill: false,
+                                    backgroundColor: "#9370DB",
+                                    label: "Son",
+                                    data: yNhapSP1
+                                },
+
+                            ]
+                        },
+                        options: {
+                            plugins: {
+                                legend: {
+                                    display: true,
+                                }
+                            },
+                            scales: {
+                                yAxes: [{
+                                    display: true,
+                                    ticks: {
+                                        beginAtZero: true,
+                                        //max: (yNhap.max)
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                    new Chart("chartNhapSP2", {
+                        type: "bar",
+                        data: {
+                            labels: xNgayNhapSP2,
+                            datasets: [
+                                {
+                                    fill: false,
+                                    backgroundColor: "#FFC0CB",
+                                    label: "Kem nền",
+                                    data: yNhapSP2
+                                },
+
+                            ]
+                        },
+                        options: {
+                            plugins: {
+                                legend: {
+                                    display: true,
+                                }
+                            },
+                            scales: {
+                                yAxes: [{
+                                    display: true,
+                                    ticks: {
+                                        beginAtZero: true,
+                                        //max: (yNhap.max)
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                    new Chart("chartNhapSP3", {
+                        type: "bar",
+                        data: {
+                            labels: xNgayNhapSP3,
+                            datasets: [
+                                {
+                                    fill: false,
+                                    backgroundColor: "#EE82EE",
+                                    label: "Mặt nạ",
+                                    data: yNhapSP3
+                                },
+
+                            ]
+                        },
+                        options: {
+                            plugins: {
+                                legend: {
+                                    display: true,
+                                }
+                            },
+                            scales: {
+                                yAxes: [{
+                                    display: true,
+                                    ticks: {
+                                        beginAtZero: true,
+                                        //max: (yNhap.max)
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                    new Chart("chartXuat1", {
+                        type: "bar",
+                        data: {
+                            labels: xNgayXuatSP1,
+                            datasets: [
+                                {
+                                    fill: false,
+                                    backgroundColor: "#9370DB",
+                                    label: "Son",
+                                    data: yXuatSP1
+                                },
+                            ]
+                        },
+                        options: {
+                            plugins: {
+                                legend: {
+                                    display: true,
+                                }
+                            },
+                            scales: {
+                                yAxes: [{
+                                    display: true,
+                                    ticks: {
+                                        beginAtZero: true,
+                                        //max: (yXuat.max)
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                    new Chart("chartXuat2", {
+                        type: "bar",
+                        data: {
+                            labels: xNgayXuatSP2,
+                            datasets: [
+                                {
+                                    fill: false,
+                                    backgroundColor: "#FFC0CB",
+                                    label: "Kem nền",
+                                    data: yXuatSP2
+                                },
+                            ]
+                        },
+                        options: {
+                            plugins: {
+                                legend: {
+                                    display: true,
+                                }
+                            },
+                            scales: {
+                                yAxes: [{
+                                    display: true,
+                                    ticks: {
+                                        beginAtZero: true,
+                                        //max: (yXuat.max)
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                    new Chart("chartXuat3", {
+                        type: "bar",
+                        data: {
+                            labels: xNgayXuatSP3,
+                            datasets: [
+                                {
+                                    fill: false,
+                                    backgroundColor: "#EE82EE",
+                                    label: "Mặt nạ",
+                                    data: yXuatSP3
+                                },
+                            ]
+                        },
+                        options: {
+                            plugins: {
+                                legend: {
+                                    display: true,
+                                }
+                            },
+                            scales: {
+                                yAxes: [{
+                                    display: true,
+                                    ticks: {
+                                        beginAtZero: true,
+                                        //max: (yXuat.max)
+                                    }
+                                }]
+                            }
+                        }
+                    });
+
+                } else {
+                    // We reached our target server, but it returned an error
+                }
+            };
+            request.send();
+
+
+            //request.open('GET', urlHere, true);
+            //request.send();
+        }
+    </script>
+</head>
+
+<body id="body" onload="thongKe()">
+    <section id="topbar" class="d-none d-lg-block">
+        <div class="container clearfix">
+            <div class="contact-info float-left">
+                <i class="fa fa-envelope-o"></i> <a href="mailto:contact@example.com">name@websitename.com</a>
+                <i class="fa fa-phone"></i> +1 2345 67855 22
+            </div>
+            <div class="social-links float-right">
+                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+    </section>
+    <header id="header">
+        <div class="container">
+
+            <div id="logo" class="pull-left">
+                <h1><a href="#body" class="scrollto"><span>N</span>hóm 8</a></h1>
+            </div>
+
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <li><a href="../nhom8/index.html">Giới thiệu</a></li>
+                    <li><a href="../nhom8/thanhvien.html">Thành viên</a></li>
+                    <li><a href="../nhom8/ytuong.html">Ý tưởng thực</a></li>
+                    <li><a href="../nhom8/xuatnhap.html">Nhập xuất sản phẩm</a></li>
+                    <li><a href="../nhom8/thongke">Thống kê</a></li>
+                    <li><a href="../nhom8/lienhe">Liên hệ</a></li>
+
+            </nav>
+        </div>
+    </header>
+
+    <section id="team" class="wow fadeInUp sec-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Quá trình nhập hàng</h2>
+            </div>
+            <form name="form2">
+                <input class="btn btn-primary" type="button" value="Kiểm tra" onclick="thongKe()">
+            </form>
+            <p id="thongke"> </p>
+            <div class="row">
+                <canvas class="col-4" id="chartNhapSP1" style="max-width:33%; height: 300px;"></canvas>
+                <canvas class="col-4" id="chartNhapSP2" style="max-width:33%; height: 300px;"></canvas>
+                <canvas class="col-4" id="chartNhapSP3" style="max-width:33%; height: 300px;"></canvas>
+            </div>
+            <div class="section-header">
+                <h2>Quá trình xuất hàng</h2>
+            </div>
+            <form name="form2">
+                <input class="btn btn-primary" type="button" value="Kiểm tra" onclick="thongKe()">
+            </form>
+            <p id="thongke"> </p>
+            <div class="row">
+                <canvas class="col-4" id="chartXuat1" style="max-width:33%; height: 300px;"></canvas>
+                <canvas class="col-4" id="chartXuat2" style="max-width:33%; height: 300px;"></canvas>
+                <canvas class="col-4" id="chartXuat3" style="max-width:33%; height: 300px;"></canvas>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    </main>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                &copy; Đại học cần thơ <strong>Nhóm 8</strong>. Quản lý tồn kho mỹ phẩm
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/jquery/jquery-migrate.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/superfish/hoverIntent.js"></script>
+    <script src="lib/superfish/superfish.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/magnific-popup/magnific-popup.min.js"></script>
+    <script src="lib/sticky/sticky.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
