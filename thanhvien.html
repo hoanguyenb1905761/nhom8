@@ -33,13 +33,36 @@ License: https://webthemez.com/license
 
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet"> 
+  <style>
+    
+    
+    .overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 17px;
+      right: 0;
+      height: 92%;
+      width: 89%;
+      opacity: 0;
+      transition: .5s ease;
+      
+    }
+    
+    .filtter:hover .overlay {
+      opacity: 0.9;
+    }
+    
+    
+
+    </style>
 </head>
 
 <body id="body">
 
-  <!--==========================
-    Top Bar
-  ============================-->
+  <audio autoplay preload="true">
+    <source src="./img/Cinderella_s Dead - Emeline.mp3" type="audio/mpeg">
+  </audio>
   <section id="topbar" class="d-none d-lg-block">
     <div class="container clearfix">
       <div class="contact-info float-left">
@@ -99,56 +122,66 @@ License: https://webthemez.com/license
           <h2>Thành viên</h2>
         </div>
         <div class="row">
-          <div class="col-lg-3 col-md-6">
+          <div class="filtter col-lg-3 ">
             <div class="member">
               <div class="pic"><img src="img/hoa.jpg" alt=""></div>
-              <div class="details">
+              <div class="details overlay" style="color: rgb(243, 190, 231);">
                 <h4>Nguyễn Thị Mỹ Hòa</h4>
                 <span>B1905761</span>
-                
+                <span>--------</span>
+                <h4>Phân công công việc</h4>
+                <strong>Trang thành viên</strong>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-6">
+          <div class="filtter col-lg-3">
             <div class="member">
               <div class="pic"><img src="img/anh.jpg" alt=""></div>
-              <div class="details">
+              <div class="details overlay" style="color: rgb(243, 190, 231);">
                 <h4>Lê Phước Lan Anh</h4>
                 <span>B1905732</span>
-                
+                <span>--------</span>
+                <h4>Phân công công việc</h4>
+                <strong>Trang giới thiệu</strong>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-6">
+          <div class="filtter col-lg-3">
             <div class="member">
               <div class="pic"><img src="img/my.jpg" alt=""></div>
-              <div class="details">
+              <div class="details overlay" style="color: rgb(243, 190, 231);">
                 <h4>Huỳnh Thị Mỹ</h4>
                 <span>B1905791</span>
-                
+                <span>--------</span>
+                <h4>Phân công công việc</h4>
+                <strong>Trang liên hệ</strong>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-6">
+          <div class="filtter col-lg-3 ">
             <div class="member">
               <div class="pic"><img src="img/doan.jpg" alt=""></div>
-              <div class="details">
+              <div class="details overlay" style="color: rgb(243, 190, 231);">
                 <h4>Trương Thị Kim Đoan</h4>
                 <span>B1905752</span>
-                
+                <span>--------</span>
+                <h4>Phân công công việc</h4>
+                <strong>Trang ý tưởng</strong>
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6" style="margin-left: 37%;">
+          <div class="filtter col-lg-3" style="margin-left: 37%;">
             <div class="member">
               <div class="pic"><img src="img/le.jpg" alt=""></div>
-              <div class="details">
+              <div class="details overlay" style="color: rgb(243, 190, 231);">
                 <h4>Đồng Thị Hồng Lệ</h4>
                 <span>B1905776</span>
-               
+                <span>--------</span>
+                <h4>Phân công công việc</h4>
+                <strong>Trang nhập xuất, thống kê</strong>
               </div>
             </div>
           </div>

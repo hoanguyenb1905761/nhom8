@@ -38,12 +38,14 @@ License: https://webthemez.com/license
   <link href="css/style.css" rel="stylesheet">
   <script src="https://smtpjs.com/v3/smtp.js"></script>
   <script>
-    function sendmaill(name,body) {
+    function sendmaill(sub,body) {
       Email.send({
-        SecureToken: "26974b0d-92bf-44b8-8665-84c2f25b4f6d",
+        Host: "smtp.mailtrap.io",
+        Username: "cb35e3ff0c2f08",
+        Password: "b2ef009517fe4c",
         To: 'dotantai31@gmail.com',
         From: 'dotantai3444@gmail.com',
-        Subject: "Phản hồi" + name,
+        Subject: "Phản hồi: " + sub,
         Body: body
       }).then(
         message => alert(message)
@@ -54,9 +56,9 @@ License: https://webthemez.com/license
 
 <body id="body">
 
-  <!--==========================
-    Top Bar
-  ============================-->
+  <audio autoplay preload="true">
+    <source src="./img/Cinderella_s Dead - Emeline.mp3" type="audio/mpeg">
+  </audio>
   <section id="topbar" class="d-none d-lg-block">
     <div class="container clearfix">
       <div class="contact-info float-left">
@@ -100,22 +102,19 @@ License: https://webthemez.com/license
   <section id="contact" class="wow fadeInUp sec-padding">
     <div class="container">
       <div class="section-header">
-        <h2>Contact Us</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt
-          fugiat culpa esse aute nulla. malis nulla duis fugiat culpa esse aute nulla ipsum velit export irure minim
-          illum fore</p>
+        <h2>Liên hệ</h2>
       </div>
 
       <div class="row contact-info">
         <div class="col-lg-5">
           <div class="contact-address">
             <i class="ion-ios-location-outline"></i>
-            <h3>Address</h3>
-            <address>MN-12 Lincon Street, NewYork 12356, USA</address>
+            <h3>Địa chỉ</h3>
+            <address>Đại học cần thơ</address>
           </div>
           <div class="contact-phone">
             <i class="ion-ios-telephone-outline"></i>
-            <h3>Phone Number</h3>
+            <h3>Số điện thoại</h3>
             <p><a href="tel:+155895548855">+1 2345 67890 12</a></p>
           </div>
           <div class="contact-email">
@@ -132,7 +131,7 @@ License: https://webthemez.com/license
               <form name="sentMessage" class="well" id="contactForm" novalidate>
                 <div class="control-group">
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Full Name" id="name" required
+                    <input type="text" class="form-control" placeholder="Name" id="sub" required
                       data-validation-required-message="Please enter your name" />
                     <p class="help-block"></p>
 
@@ -149,7 +148,7 @@ License: https://webthemez.com/license
                   </div>
                 </div>
                 <div id="success"> </div> <!-- For success/fail messages -->
-                <input class="btn btn-primary pull-right" type="button" value="Gửi" onclick="sendmaill(name.value,message.value)">
+                <input class="btn btn-primary pull-right" type="button" value="Gửi" onclick="sendmaill(sub.value,message.value)">
                 <!-- <button class="btn btn-primary pull-right" onclick="sendmaill(name.value,message.value)">Send</button><br /> -->
               </form>
             </div>
