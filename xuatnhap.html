@@ -41,85 +41,121 @@ License: https://webthemez.com/license
         function nhapHang1(dat, b) {
             var request = new XMLHttpRequest();
             var urlHere = "https://api.thingspeak.com/update?";
+            so = dat
+            if (so == null || dat == "") {
+                alert("Bạn phải nhập gia trị vào ô nhập")
+            }
+            else {
+                urlHere = urlHere + "api_key=34HOHEAUNRXGFV1K&field1=" + dat;
+                request.open('GET', urlHere, true);
+                request.send();
+                setTimeout(function () {
+                    b();
+                }, 5000);
+            }
 
-            urlHere = urlHere + "api_key=34HOHEAUNRXGFV1K&field1=" + dat;
-            request.open('GET', urlHere, true);
-            request.send();
-            setTimeout(function () {
-                b();
-            }, 5000);
         }
 
         function xuatHang1(dat, b) {
             var request = new XMLHttpRequest();
             var urlHere = "https://api.thingspeak.com/update?";
-            urlHere = urlHere + "api_key=34HOHEAUNRXGFV1K&field2=" + dat;
-
-            if (parseInt(dat) <= tonKhoSP1) {
-                request.open('GET', urlHere, true);
-                request.send();
-            } else {
-                alert("Hàng không đủ để xuất, bạn cần bổ sung thêm ít nhất " + (dat - tonKhoSP1) + " để có thể xuất hàng!!");
+            so = dat
+            if (so == null || dat == "") {
+                alert("Bạn phải nhập gia trị vào ô xuất")
             }
-            setTimeout(function () {
-                b();
-            }, 5000);
+            else {
+                urlHere = urlHere + "api_key=34HOHEAUNRXGFV1K&field2=" + dat;
+                if (parseInt(dat) <= tonKhoSP1) {
+                    request.open('GET', urlHere, true);
+                    request.send();
+                } else {
+                    alert("Hàng không đủ để xuất, bạn cần bổ sung thêm ít nhất " + (dat - tonKhoSP1) + " để có thể xuất hàng!!");
+                }
+                setTimeout(function () {
+                    b();
+                }, 5000);
+            }
+
         }
         // -----------------
         function nhapHang2(dat, b) {
             var request = new XMLHttpRequest();
             var urlHere = "https://api.thingspeak.com/update?";
+            so = dat
+            if (so == null || dat == "") {
+                alert("Bạn phải nhập gia trị vào ô nhập")
+            }
+            else {
+                urlHere = urlHere + "api_key=34HOHEAUNRXGFV1K&field3=" + dat;
+                request.open('GET', urlHere, true);
+                request.send();
+                setTimeout(function () {
+                    b();
+                }, 5000);
+            }
 
-            urlHere = urlHere + "api_key=34HOHEAUNRXGFV1K&field3=" + dat;
-            request.open('GET', urlHere, true);
-            request.send();
-            setTimeout(function () {
-                b();
-            }, 5000);
         }
 
         function xuatHang2(dat, b) {
             var request = new XMLHttpRequest();
             var urlHere = "https://api.thingspeak.com/update?";
-            urlHere = urlHere + "api_key=34HOHEAUNRXGFV1K&field4=" + dat;
-
-            if (parseInt(dat) <= tonKhoSP2) {
-                request.open('GET', urlHere, true);
-                request.send();
-            } else {
-                alert("Hàng không đủ để xuất, bạn cần bổ sung thêm ít nhất " + (dat - tonKhoSP2) + " để có thể xuất hàng!!");
+            so = dat
+            if (so == null || dat == "") {
+                alert("Bạn phải nhập gia trị vào ô xuất")
             }
-            setTimeout(function () {
-                b();
-            }, 5000);
+            else {
+                urlHere = urlHere + "api_key=34HOHEAUNRXGFV1K&field4=" + dat;
+                if (parseInt(dat) <= tonKhoSP2) {
+                    request.open('GET', urlHere, true);
+                    request.send();
+                } else {
+                    alert("Hàng không đủ để xuất, bạn cần bổ sung thêm ít nhất " + (dat - tonKhoSP2) + " để có thể xuất hàng!!");
+                }
+                setTimeout(function () {
+                    b();
+                }, 5000);
+            }
+
         }
         // -----------------
         function nhapHang3(dat, b) {
             var request = new XMLHttpRequest();
             var urlHere = "https://api.thingspeak.com/update?";
+            so = dat
+            if (so == null || dat == "") {
+                alert("Bạn phải nhập gia trị vào ô nhập")
+            }
+            else {
+                urlHere = urlHere + "api_key=34HOHEAUNRXGFV1K&field5=" + dat;
+                request.open('GET', urlHere, true);
+                request.send();
+                setTimeout(function () {
+                    b();
+                }, 5000);
+            }
 
-            urlHere = urlHere + "api_key=34HOHEAUNRXGFV1K&field5=" + dat;
-            request.open('GET', urlHere, true);
-            request.send();
-            setTimeout(function () {
-                b();
-            }, 5000);
         }
 
         function xuatHang3(dat, b) {
             var request = new XMLHttpRequest();
             var urlHere = "https://api.thingspeak.com/update?";
-            urlHere = urlHere + "api_key=34HOHEAUNRXGFV1K&field6=" + dat;
-
-            if (parseInt(dat) <= tonKhoSP3) {
-                request.open('GET', urlHere, true);
-                request.send();
-            } else {
-                alert("Hàng không đủ để xuất, bạn cần bổ sung thêm ít nhất " + (dat - tonKhoSP3) + " để có thể xuất hàng!!");
+            so = dat
+            if (so == null || dat == "") {
+                alert("Bạn phải nhập gia trị vào ô xuất")
             }
-            setTimeout(function () {
-                b();
-            }, 5000);
+            else {
+                urlHere = urlHere + "api_key=34HOHEAUNRXGFV1K&field6=" + dat;
+                if (parseInt(dat) <= tonKhoSP3) {
+                    request.open('GET', urlHere, true);
+                    request.send();
+                } else {
+                    alert("Hàng không đủ để xuất, bạn cần bổ sung thêm ít nhất " + (dat - tonKhoSP3) + " để có thể xuất hàng!!");
+                }
+                setTimeout(function () {
+                    b();
+                }, 5000);
+            }
+
         }
 
         function thongKe() {
@@ -290,13 +326,13 @@ License: https://webthemez.com/license
                     <div class="mb-3 row">
                         <label for="inputPassword" class="col-sm-4 col-form-label">Nhập hàng</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="nhap1">
+                            <input type="number" class="form-control" id="nhap1" required>
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label for="inputPassword" class="col-sm-4 col-form-label">Xuất hàng</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="xuat1">
+                            <input type="number" class="form-control" id="xuat1" required>
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -316,13 +352,13 @@ License: https://webthemez.com/license
                     <div class="mb-3 row">
                         <label for="inputPassword" class="col-sm-4 col-form-label">Nhập hàng</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="nhap2">
+                            <input type="number" class="form-control" id="nhap2" required>
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label for="inputPassword" class="col-sm-4 col-form-label">Xuất hàng</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="xuat2">
+                            <input type="number" class="form-control" id="xuat2" required>
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -343,13 +379,13 @@ License: https://webthemez.com/license
                         <div class="mb-3 row">
                             <label for="inputPassword" class="col-sm-4 col-form-label">Nhập hàng</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="nhap3">
+                                <input type="number" class="form-control" id="nhap3" required>
                             </div>
                         </div>
                         <div class="mb-3 row">
                             <label for="inputPassword" class="col-sm-4 col-form-label">Xuất hàng</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="xuat3">
+                                <input type="number" class="form-control" id="xuat3" required>
                             </div>
                         </div>
                         <div class="mb-3 row">
